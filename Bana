@@ -60,7 +60,7 @@ getgenv().Key = "254c1192a073742dc137994a"
             ["Observation"] = true,
         },
         ["Sniper Fruit Shop"] = {
-            ["Enabled"] = true,
+            ["Enabled"] = false,
             ["Fruit"] = {"Leopard-Leopard","Kitsune-Kitsune","Dragon-Dragon","Yeti-Yeti","Gas-Gas"},
         },
         ["Lock Fruit"] = {},
