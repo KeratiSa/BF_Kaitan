@@ -1,7 +1,4 @@
-repeat task.wait() until game:IsLoaded()
-repeat task.wait() until game.Players
-repeat task.wait() until game.Players.LocalPlayer
-repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
+repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
 getgenv().Key = "009e313539527f23e9d25f15"
     getgenv().SettingFarm ={
         ["Hide UI"] = false,
@@ -71,9 +68,9 @@ getgenv().Key = "009e313539527f23e9d25f15"
         },
         ["Sniper Fruit Shop"] = {
             ["Enabled"] = false, -- Auto Buy Fruit in Shop Mirage and Normal
-            ["Fruit"] = {"Ice-Ice","Light-Light","Dark-Dark","Magma-Magma"},
+            ["Fruit"] = {},
         },
-        ["Lock Fruit"] = {"Ice-Ice","Light-Light","Dark-Dark","Magma-Magma"},
+        ["Lock Fruit"] = {},
         ["Webhook"] = {
             ["Enabled"] = false,
             ["WebhookUrl"] = "",
