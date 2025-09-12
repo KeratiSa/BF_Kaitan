@@ -1,5 +1,5 @@
 repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
-getgenv().Key = "254c1192a073742dc137994a"
+getgenv().Key = "009e313539527f23e9d25f15"
     getgenv().SettingFarm ={
         ["Hide UI"] = false,
         ["Reset Teleport"] = {
@@ -26,27 +26,34 @@ getgenv().Key = "254c1192a073742dc137994a"
             ["Godhuman"] =  true,
             ["Skull Guitar"] = true,
             ["Mirror Fractal"] = true,
-            ["Cursed Dual Katana"] = false,
+            ["Cursed Dual Katana"] = true,
             ["Upgrade Race V2-V3"] = true,
             ["Auto Pull Lever"] = true,
+            ["Shark Anchor"] = false, --- if have cdk,sg,godhuman
+        },
+        ["Get Rare Items"] = {
+            ["Rengoku"] = false,
+            ["Dragon Trident"] = false, 
+            ["Pole (1st Form)"] = false,
+            ["Gravity Blade"]  = false,
         },
         ["Farm Fragments"] = {
-            ["Enabled"]  = false,
+            ["Enabled"]  = true,
             ["Fragment"] = 50000,
         },
         ["Auto Chat"] = {
             ["Enabled"] = false,
-            ["Text"] = "",
+            ["Text"] = "Mua a.cc blox fruit v.ip ib epbe : Fumio Youngest.",
         },
         ["Auto Summon Rip Indra"] = true, --- auto buy haki and craft haki legendary 
         ["Select Hop"] = { -- 70% will have it
             ["Hop Server If Have Player Near"] = false, 
-            ["Hop Find Rip Indra Get Valkyrie Helm or Get Tushita"] = false, 
+            ["Hop Find Rip Indra Get Valkyrie Helm or Get Tushita"] = true, 
             ["Hop Find Dough King Get Mirror Fractal"] = false,
-            ["Hop Find Raids Castle [CDK]"] = false,
-            ["Hop Find Cake Queen [CDK]"] = false,
-            ["Hop Find Soul Reaper [CDK]"] = false,
-            ["Hop Find Darkbeard [SG]"] = false,
+            ["Hop Find Raids Castle [CDK]"] = true,
+            ["Hop Find Cake Queen [CDK]"] = true,
+            ["Hop Find Soul Reaper [CDK]"] = true,
+            ["Hop Find Darkbeard [SG]"] = true,
             ["Hop Find Mirage [ Pull Lever ]"] = false,
         },
         ["Farm Mastery"] = {
@@ -54,21 +61,19 @@ getgenv().Key = "254c1192a073742dc137994a"
             ["Sword"] = false,
         },
         ["Buy Haki"] = {
-            ["Enhancement"] = false,
+            ["Enhancement"] = true,
             ["Skyjump"] = true,
             ["Flash Step"] = true,
             ["Observation"] = true,
         },
         ["Sniper Fruit Shop"] = {
-            ["Enabled"] = false,
-            ["Fruit"] = {"Leopard-Leopard","Kitsune-Kitsune","Dragon-Dragon","Yeti-Yeti","Gas-Gas"},
+            ["Enabled"] = false, -- Auto Buy Fruit in Shop Mirage and Normal
+            ["Fruit"] = {"Ice-Ice","Light-Light","Dark-Dark","Magma-Magma"},
         },
-        ["Lock Fruit"] = {},
+        ["Lock Fruit"] = {"Ice-Ice","Light-Light","Dark-Dark","Magma-Magma"},
         ["Webhook"] = {
             ["Enabled"] = false,
             ["WebhookUrl"] = "",
         }
     }
 loadstring(game:HttpGet("https://raw.githubusercontent.com/obiiyeuem/vthangsitink/main/BananaCat-kaitunBF.lua"))()
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/SandKingTH/RawScriptAll/refs/heads/main/CDK.lua"))()
