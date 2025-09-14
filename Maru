@@ -23,7 +23,8 @@ _G.MainSettings = {
             [6] = "Venom-Venom",
             [7] = "Spirit-Spirit",
             [8] = "Mammoth-Mammoth",
-            [9] = "Gas-Gas"       
+            [9] = "Gas-Gas",
+			[10] = "Buddha-Buddha",
     }
 }
 _G.SharkAnchor_Settings = {
@@ -55,8 +56,8 @@ _G.Races_Settings = {
     }
 }
 _G.Fruits_Settings = {
-    ['Main_Fruits'] = {'Dough-Dough'},
-    ['Select_Fruits'] = {"Ice-Ice", "Quake-Quake", "Light-Light", "Dark-Dark","Rumble-Rumble","Magma-Magma","Buddha-Buddha"}
+    ['Main_Fruits'] = {},
+    ['Select_Fruits'] = {"Ice-Ice", "Quake-Quake", "Light-Light", "Dark-Dark","Rumble-Rumble","Magma-Magma",}
 }
 _G.Settings_Melee = {
     ['Superhuman'] = true,
