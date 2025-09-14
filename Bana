@@ -1,6 +1,6 @@
 repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
-getgenv().Key = "009e313539527f23e9d25f15"   
-getgenv().SettingFarm ={
+getgenv().Key = "009e313539527f23e9d25f15"
+    getgenv().SettingFarm ={
         ["Hide UI"] = false,
         ["Reset Teleport"] = {
             ["Enabled"] = false,
@@ -16,15 +16,15 @@ getgenv().SettingFarm ={
                 },
             },
         },
-        ["White Screen"] = false,
+        ["White Screen"] = true,
         ["Lock Fps"] = {
             ["Enabled"] = false,
-            ["FPS"] = 20,
+            ["FPS"] = 12,
         },
         ["Get Items"] = {
             ["Saber"] = true,
             ["Godhuman"] =  true,
-            ["Skull Guitar"] = true,
+            ["Skull Guitar"] = false,
             ["Mirror Fractal"] = true,
             ["Cursed Dual Katana"] = true,
             ["Upgrade Race V2-V3"] = true,
@@ -43,7 +43,7 @@ getgenv().SettingFarm ={
         },
         ["Auto Chat"] = {
             ["Enabled"] = false,
-            ["Text"] = "Mua a.cc blox fruit v.ip ib epbe : Fumio Youngest.",
+            ["Text"] = "",
         },
         ["Auto Summon Rip Indra"] = true, --- auto buy haki and craft haki legendary 
         ["Select Hop"] = { -- 70% will have it
@@ -53,12 +53,12 @@ getgenv().SettingFarm ={
             ["Hop Find Raids Castle [CDK]"] = true,
             ["Hop Find Cake Queen [CDK]"] = true,
             ["Hop Find Soul Reaper [CDK]"] = true,
-            ["Hop Find Darkbeard [SG]"] = true,
+            ["Hop Find Darkbeard [SG]"] = false,
             ["Hop Find Mirage [ Pull Lever ]"] = false,
         },
         ["Farm Mastery"] = {
-            ["Melee"] = false,
-            ["Sword"] = false,
+            ["Melee"] = true,
+            ["Sword"] = true,
         },
         ["Buy Haki"] = {
             ["Enhancement"] = true,
@@ -67,10 +67,10 @@ getgenv().SettingFarm ={
             ["Observation"] = true,
         },
         ["Sniper Fruit Shop"] = {
-            ["Enabled"] = false, -- Auto Buy Fruit in Shop Mirage and Normal
-            ["Fruit"] = {},
+            ["Enabled"] = true, -- Auto Buy Fruit in Shop Mirage and Normal
+            ["Fruit"] = {"Ice-Ice", "Quake-Quake", "Light-Light", "Dark-Dark","Rumble-Rumble","Magma-Magma",},
         },
-        ["Lock Fruit"] = {},
+        ["Lock Fruit"] = {"Yeti-Yeti","T-Rex-T-Rex","Dragon-Dragon","Dough-Dough","Kitsune-Kitsune","Leopard-Leopard","Venom-Venom","Spirit-Spirit",Mammoth-Mammoth","Gas-Gas","Buddha-Buddha"},
         ["Webhook"] = {
             ["Enabled"] = false,
             ["WebhookUrl"] = "",
