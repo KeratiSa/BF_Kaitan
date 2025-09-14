@@ -14,8 +14,7 @@ _G.MainSettings = {
     ['AFKCheck'] = 150,
     ["LockFragments"] = 20000,
     ["LockFruitsRaid"] = {
-	    [1] = "Yeti-Yeti",
-            [2] = "T-Rex-T-Rex",
+	    	[1] = "Yeti-Yeti",
             [2] = "Dragon-Dragon",
             [3] = "Dough-Dough",
             [4] = "Kitsune-Kitsune",
@@ -25,6 +24,7 @@ _G.MainSettings = {
             [8] = "Mammoth-Mammoth",
             [9] = "Gas-Gas",
 			[10] = "Buddha-Buddha",
+			[11] = "T-Rex-T-Rex",
     }
 }
 _G.SharkAnchor_Settings = {
