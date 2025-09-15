@@ -1,6 +1,5 @@
 return {
-getgenv().SettingFarm ={
-        ["Hide UI"] = false,
+    ["Hide UI"] = false,
         ["Reset Teleport"] = {
             ["Enabled"] = false,
             ["Delay Reset"] = 3,
@@ -73,6 +72,5 @@ getgenv().SettingFarm ={
         ["Webhook"] = {
             ["Enabled"] = false,
             ["WebhookUrl"] = "",
-        }
-    }
+            }
 }
