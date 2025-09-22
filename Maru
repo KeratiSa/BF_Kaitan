@@ -23,7 +23,7 @@ _G.MainSettings = {
             [7] = "Spirit-Spirit",
             [8] = "Mammoth-Mammoth",
             [9] = "Gas-Gas",
-			[10] = "Buddha-Buddha",
+			[10] = "Lightning-Lightning",
 			[11] = "T-Rex-T-Rex",
     }
 }
