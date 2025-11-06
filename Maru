@@ -90,13 +90,14 @@ _G.GunSettings = {
 }
 _G.FarmMastery_Settings = {
     ['Melee'] = true,
-    ['Sword'] = true,
-    ['DevilFruits'] = true,
+    ['Sword'] = false,
+    ['DevilFruits'] = false,
     ['Select_Swords'] = {
         ["AutoSettings"] = true,
         ["ManualSettings"] = {
-            "Saber",
-            "Buddy Sword"
+            "CursedDualKatana",
+			 "Tushita",
+            "Yama"
         }
     }
 }
