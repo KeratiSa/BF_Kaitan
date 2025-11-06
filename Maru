@@ -28,7 +28,7 @@ _G.MainSettings = {
     }
 }
 _G.SharkAnchor_Settings = {
-    ["Enabled_Farm"] = true,
+    ["Enabled_Farm"] = false,
     ['FarmAfterMoney'] = 2500000
 }
 _G.Quests_Settings = {        
@@ -101,7 +101,7 @@ _G.FarmMastery_Settings = {
     }
 }
 _G.Hop_Settings = {
-    ["Find Tushita"] = false
+    ["Find Tushita"] = true
 }
 (getgenv()).key = "MARUS10J686NSX32JXEZL8QCSA";
 (getgenv()).id = "363593020811247618";
