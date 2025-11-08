@@ -25,6 +25,7 @@ _G.MainSettings = {
             [9] = "Gas-Gas",
 			[10] = "Lightning-Lightning",
 			[11] = "T-Rex-T-Rex",
+			[12] = "Tiger-Tiger",
     }
 }
 _G.SharkAnchor_Settings = {
