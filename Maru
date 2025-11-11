@@ -2,109 +2,42 @@ repeat task.wait() until game:IsLoaded()
 repeat task.wait() until game.Players
 repeat task.wait() until game.Players.LocalPlayer
 repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
-_G.Team = "Pirate" -- Marine / Pirate
-getgenv().Script_Mode = "Kaitun_Script"
-_G.MainSettings = {
-    ["EnabledHOP"] = true,
-    ['FPSBOOST'] = true,
-    ["FPSLOCKAMOUNT"] = 60,
-    ['WhiteScreen'] = true,
-    ['CloseUI'] = false,
-    ["NotifycationExPRemove"] = true,
-    ['AFKCheck'] = 150,
-    ["LockFragments"] = 20000,
-    ["LockFruitsRaid"] = {
-	    	[1] = "Yeti-Yeti",
-            [2] = "Dragon-Dragon",
-            [3] = "Dough-Dough",
-            [4] = "Kitsune-Kitsune",
-            [5] = "Leopard-Leopard",
-            [6] = "Venom-Venom",
-            [7] = "Spirit-Spirit",
-            [8] = "Mammoth-Mammoth",
-            [9] = "Gas-Gas",
-			[10] = "Lightning-Lightning",
-			[11] = "T-Rex-T-Rex",
-			[12] = "Tiger-Tiger",
-    }
-}
-_G.SharkAnchor_Settings = {
-    ["Enabled_Farm"] = false,
-    ['FarmAfterMoney'] = 2500000
-}
-_G.Quests_Settings = {        
-    ['Rainbow_Haki'] = true,
-    ["MusketeerHat"] = true,
-    ["PullLever"] = true,
-    ['DoughQuests_Mirror'] = {
-        ['Enabled'] = true,
-        ['UseFruits'] = true
-    }        
-}
-_G.Races_Settings = {
-    ['Race'] = {
-        ['EnabledEvo'] = true,
-        ["v2"] = true,
-        ["v3"] = true,
-        ["Races_Lock"] = {
-            ["Races"] = {
-                ["Mink"] = true,
-                ["Human"] = true,
-                ["Fishman"] = true
-            },
-            ["RerollsWhenFragments"] = 20000
+getgenv().Mode = "OneClick"
+getgenv().Setting = {
+    ["Team"] = "Pirates", -- Options "Pirates", "Marines"
+    ["FucusOnLevel"] = true,
+    ["Fruits"] = {  -- setting for fruits u want
+        ["Primary"] = { -- if current fruit is not in this list, eat/buy
+            -- u can configs add mores/remove and must end with , (comma symbol)
+        },
+        ["Normal"] = { -- it just a normal fruit list
+	"Ice-Ice",
+        "Quake-Quake",
+        "Light-Light", 
+        "Dark-Dark",
+        "Rumble-Rumble",
+        "Magma-Magma"
+            -- u can configs add mores/remove and must end with , (comma symbol)
         }
-    }
-}
-_G.Fruits_Settings = {
-    ['Main_Fruits'] = {},
-    ['Select_Fruits'] = {"Ice-Ice", "Quake-Quake", "Light-Light", "Dark-Dark","Rumble-Rumble","Magma-Magma",}
-}
-_G.Settings_Melee = {
-    ['Superhuman'] = true,
-    ['DeathStep'] = true,
-    ['SharkmanKarate'] = true,
-    ['ElectricClaw'] = true,
-    ['DragonTalon'] = true,
-    ['Godhuman'] = true
-}
-_G.SwordSettings = {
-    ['Saber'] = true,
-    ["Pole"] = false,
-    ['MidnightBlade'] = false,
-    ['Shisui'] = true,
-    ['Saddi'] = true,
-    ['Wando'] = true,
-    ['Yama'] = true,
-    ['Rengoku'] = false,
-    ['Canvander'] = false,
-    ['BuddySword'] = false,
-    ['TwinHooks'] = false,
-    ['HallowScryte'] = false,
-    ['TrueTripleKatana'] = true,
-    ['CursedDualKatana'] = true
-}
-_G.GunSettings = {
-    ['Kabucha'] = false,
-    ['SerpentBow'] = false,
-    ['SoulGuitar'] = false
-}
-_G.FarmMastery_Settings = {
-    ['Melee'] = true,
-    ['Sword'] = false,
-    ['DevilFruits'] = false,
-    ['Select_Swords'] = {
-        ["AutoSettings"] = true,
-        ["ManualSettings"] = {
-            "CursedDualKatana",
-			 "Tushita",
-            "Yama"
-        }
-    }
-}
-_G.Hop_Settings = {
-    ["Find Tushita"] = true
-}
-(getgenv()).key = "MARUS10J686NSX32JXEZL8QCSA";
-(getgenv()).id = "363593020811247618";
-loadstring(game:HttpGet("https://raw.githubusercontent.com/xshiba/MaruComkak/main/PCBit.lua"))()
+        -- run this for get all fruit name `local t={};for _,v in pairs(game.ReplicatedStorage.Remotes.CommF_:InvokeServer("GetFruits"))do table.insert(t,v.Name)end;setclipboard(table.concat(t, "\n"))`
+    },
+    ["Lock Fruits"] = { -- don't use or eat fruits in this list
+	    "Yeti-Yeti",
+            "Dragon-Dragon",
+            "Dough-Dough",
+            "Kitsune-Kitsune",
+            "Leopard-Leopard",
+            "Venom-Venom",
+            "Spirit-Spirit",
+            "Mammoth-Mammoth",
+            "Gas-Gas",
+	    "Lightning-Lightning",
+	    "T-Rex-T-Rex",
+	    "Tiger-Tiger",
+    },
+    ["IdleCheck"] = 300, -- every (x) seconds if not moving rejoin
+};
+
+-- script here
+getgenv().user_key = 'ab1537d331a33efcb1af40d2a052aadd'
+loadstring(game:HttpGet("https://raw.githubusercontent.com/xQuartyx/QuartyzScript/main/OneClick/BF.lua"))()
