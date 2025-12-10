@@ -1,0 +1,41 @@
+repeat task.wait() until game:IsLoaded()
+repeat task.wait() until game.Players
+repeat task.wait() until game.Players.LocalPlayer
+repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
+getgenv().Script_Mode = "Kaitun_Script"
+_G.OneClickSettings = {
+    ["MainIsFarmLevel"] = true,
+    ["LockFruits"] = {
+	    "Yeti-Yeti",
+            "Dragon-Dragon",
+            "Dough-Dough",
+            "Kitsune-Kitsune",
+            "Leopard-Leopard",
+            "Venom-Venom",
+            "Spirit-Spirit",
+            "Mammoth-Mammoth",
+            "Gas-Gas",
+	    "Lightning-Lightning",
+	    "T-Rex-T-Rex",
+	    "Tiger-Tiger",
+    },
+    ["MainFruits"] = {
+
+    },
+    ["RegularFruits"] = {
+		"Ice-Ice",
+        "Quake-Quake",
+        "Light-Light", 
+        "Dark-Dark",
+        "Rumble-Rumble",
+        "Magma-Magma"
+    },
+    ["FragmentsCap"] = 50000,
+    ["Upgrade Race"] = true,
+    ["Pull Lever"] = true,
+    ["Farm Shark Anchor"] = true,
+    ["Cursed Dual Katana"] = true
+}
+(getgenv()).key = "MARU0X4QN5MO3KG2H04POKR4VA";
+(getgenv()).id = "363593020811247618";
+loadstring(game:HttpGet("https://raw.githubusercontent.com/xshiba/MaruComkak/main/PCBit.lua"))()
