@@ -34,6 +34,7 @@ getgenv().Setting = {
 	    "Lightning-Lightning",
 	    "T-Rex-T-Rex",
 	    "Tiger-Tiger",
+		"Control-Control",
     },
     ["IdleCheck"] = 300, -- every (x) seconds if not moving rejoin
 };
