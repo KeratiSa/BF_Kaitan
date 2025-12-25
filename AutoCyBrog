@@ -1,0 +1,122 @@
+-- [[ 1. ฟังก์ชันรอจนกว่าเกมจะพร้อมจริงๆ ]] --
+if not game:IsLoaded() then
+    game.Loaded:Wait()
+end
+
+local player = game:GetService("Players").LocalPlayer
+local replicatedStorage = game:GetService("ReplicatedStorage")
+local teleportService = game:GetService("TeleportService")
+
+-- ฟังก์ชันรอหน้าโหลด (เช็คจากหลายจุดเพื่อความชัวร์)
+local function WaitForGameToReady()
+    print("Waiting for game to be ready...")
+    local playerGui = player:WaitForChild("PlayerGui")
+    
+    -- รอจนกว่า UI เลือกฝ่ายจะปรากฏ (สัญญาณว่าโหลด Data เสร็จแล้ว)
+    -- หรือรอจนกว่าหน้าจอ Loading หลักจะหายไป
+    local count = 0
+    repeat
+        task.wait(1)
+        count = count + 1
+        local loadingScreen = playerGui:FindFirstChild("LoadingGui") or playerGui:FindFirstChild("LoadingData")
+    until (not loadingScreen) or count > 30 -- ไม่รอเกิน 30 วิถ้าหาไม่เจอ
+    
+    task.wait(2) -- เผื่อเวลาให้ Data เซ็ตตัว
+end
+
+WaitForGameToReady()
+
+-- [[ 2. ระบบเลือกฝ่ายอัตโนมัติ (Marines) ]] --
+local function JoinTeam()
+    if player.Team == nil then
+        print("Selecting Team: Marines...")
+        local count = 0
+        repeat
+            task.wait(1)
+            replicatedStorage.Remotes.CommF_:InvokeServer("SetTeam", "Marines")
+            count = count + 1
+        until player.Team ~= nil or count > 10
+    end
+end
+
+JoinTeam()
+
+-- รอจนกว่าโฟลเดอร์ Data จะปรากฏจริงๆ เพื่อป้องกัน Error index nil
+player:WaitForChild("Data", 20)
+player.Data:WaitForChild("Race", 20)
+task.wait(1)
+
+print("System Ready! Starting Race Logic...")
+
+-- [[ 3. ฟังก์ชันหลักสำหรับตรวจสอบเผ่า ]] --
+
+local function Rejoin()
+    teleportService:Teleport(game.PlaceId, player)
+end
+
+local function GetRaceStatus()
+    -- ตรวจสอบอีกครั้งว่า Data ยังอยู่ไหมก่อนดึงค่า
+    if not player:FindFirstChild("Data") then return nil, nil end
+    
+    local race = player.Data.Race.Value
+    local p1 = replicatedStorage.Remotes.CommF_:InvokeServer("Alchemist", "1")
+    local p2 = replicatedStorage.Remotes.CommF_:InvokeServer("Wenlocktoad", "1")
+    
+    local version = 1
+    if p2 == -2 then
+        version = 3
+    elseif p1 == -2 then
+        version = 2
+    end
+    return race, version
+end
+
+-- [[ 4. เริ่มการทำงานตามเงื่อนไข ]] --
+
+local currentRace, currentV = GetRaceStatus()
+
+if currentRace == nil then
+    print("Error: Could not get Race Data, Rejoining...")
+    Rejoin()
+    return
+end
+
+print("Current Status: " .. currentRace .. " V" .. currentV)
+
+if currentRace ~= "Cyborg" then
+    print("Action: Finding Cyborg...")
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/KeratiSa/BF_Kaitan/refs/heads/main/CBFULLGET"))()
+    
+    task.spawn(function()
+        while task.wait(60) do
+            local r, _ = GetRaceStatus()
+            if r == "Cyborg" then Rejoin() end
+        end
+    end)
+
+elseif currentRace == "Cyborg" and currentV < 2 then
+    print("Action: Upgrading to V2...")
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/KeratiSa/BF_Kaitan/refs/heads/main/V1-3"))()
+    
+    task.spawn(function()
+        while task.wait(60) do
+            local _, v = GetRaceStatus()
+            if v >= 2 then Rejoin() end
+        end
+    end)
+
+elseif currentRace == "Cyborg" and currentV >= 2 then
+    print("Action: Running Main Script (CFRMFUT)...")
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/KeratiSa/BF_Kaitan/refs/heads/main/CFRMFUT"))()
+    
+    task.spawn(function()
+        while true do
+            local r, v = GetRaceStatus()
+            if r == "Cyborg" and v >= 3 then
+                if _G.Horst_AccountChangeDone then _G.Horst_AccountChangeDone() end
+                break 
+            end
+            task.wait(10)
+        end
+    end)
+end
