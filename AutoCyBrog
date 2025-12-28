@@ -100,8 +100,19 @@ elseif currentRace == "Cyborg" and currentV < 2 then
     
     task.spawn(function()
         while task.wait(60) do
-            local _, v = GetRaceStatus()
-            if v >= 2 then Rejoin() end
+            local r, v = GetRaceStatus()
+            -- ตรวจสอบเงื่อนไขตามที่สั่ง:
+            if r == "Cyborg" and v >= 3 then
+                -- ถ้าเป็น V3 แล้ว ข้ามการรีจอย ให้จบงานเปลี่ยนไอดีทันที
+                print("Detected Cyborg V3! Skip Rejoin and Changing Account...")
+                if _G.Horst_AccountChangeDone then _G.Horst_AccountChangeDone() end
+                break
+            elseif r == "Cyborg" and v == 2 then 
+                -- ถ้าเป็น V2 ให้รีจอยเพื่อไปเข้า Main Script (CFRMFUT) ตามปกติ
+                print("Cyborg V2 Done! Rejoining...")
+                Rejoin() 
+                break
+            end
         end
     end)
 
