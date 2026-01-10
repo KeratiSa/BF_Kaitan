@@ -8,7 +8,8 @@ getgenv().Setting = {
     ["FucusOnLevel"] = true,
     ["Fruits"] = {  -- setting for fruits u want
         ["Primary"] = { -- if current fruit is not in this list, eat/buy
-            -- u can configs add mores/remove and must end with , (comma symbol)
+			"Leopard-Leopard",
+			"Tiger-Tiger",
         },
         ["Normal"] = { -- it just a normal fruit list
 	"Ice-Ice",
@@ -17,6 +18,7 @@ getgenv().Setting = {
         "Dark-Dark",
         "Rumble-Rumble",
         "Magma-Magma"
+
             -- u can configs add mores/remove and must end with , (comma symbol)
         }
         -- run this for get all fruit name `local t={};for _,v in pairs(game.ReplicatedStorage.Remotes.CommF_:InvokeServer("GetFruits"))do table.insert(t,v.Name)end;setclipboard(table.concat(t, "\n"))`
