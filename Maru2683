@@ -8,7 +8,6 @@ getgenv().Setting = {
     ["FucusOnLevel"] = true,
     ["Fruits"] = {  -- setting for fruits u want
         ["Primary"] = { -- if current fruit is not in this list, eat/buy
-			"Dough-Dough",
         },
         ["Normal"] = { -- it just a normal fruit list
 	"Ice-Ice",
