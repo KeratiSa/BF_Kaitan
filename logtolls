@@ -6,7 +6,7 @@ getgenv().HorstConfig = {
     ["EnableAddFriends"] = false, -- แอดเพื่อนให้เอง ทุกๆ 1นาที
     ["LockFps"] = {
         ["EnableLockFps"] = true,
-        ["LockFpsAmount"] = 12
+        ["LockFpsAmount"] = 15
     },
     ["AutoFunctions"] = {
         ["Enable"] = false, -- ออโต้เปลี่ยนไอดี สำคัญ !!
