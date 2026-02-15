@@ -1,0 +1,27 @@
+repeat wait() until game:IsLoaded() and game.Players.LocalPlayer 
+if not game:IsLoaded() then
+    game.Loaded:Wait(30)
+end
+
+print("Game Loaded! Starting Gacha Loop...")
+
+while true do
+    -- ส่วนที่ 1: สุ่มผล (Valentines Gacha)
+    local gachaArgs = {
+        [1] = "Cousin",
+        [2] = "ValentinesGacha26"
+    }
+    
+    local remote = game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_")
+    remote:InvokeServer(unpack(gachaArgs))
+
+    -- ส่วนที่ 2: เช็คผลในคลัง (GetFruits)
+    local fruitArgs = {
+        [1] = "GetFruits",
+        [2] = false
+    }
+    remote:InvokeServer(unpack(fruitArgs))
+
+    -- รอ 60 วินาทีก่อนเริ่มรอบถัดไป
+    task.wait(60)
+end
