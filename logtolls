@@ -32,4 +32,4 @@ getgenv().HorstConfig = {
         }
     }
 }
-loadstring(game:HttpGet("https://raw.githubusercontent.com/HorstSpaceX/last_update/refs/heads/main/on_loaded.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/KeratiSa/BF_Kaitan/refs/heads/main/hox"))()
