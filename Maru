@@ -7,8 +7,9 @@ getgenv().Setting = {
     ["Team"] = "Pirates", -- Options "Pirates", "Marines"
     ["FucusOnLevel"] = true,
     ["Fruits"] = {  -- setting for fruits u want
-        ["Primary"] = { -- if current fruit is not in this list, eat/buy
-        },
+        ["Primary"] = { 
+		"Dough-Dough"
+},
         ["Normal"] = { -- it just a normal fruit list
 	"Ice-Ice",
         "Quake-Quake",
