@@ -1,28 +1,17 @@
-repeat task.wait() until game:IsLoaded()
-repeat task.wait() until game.Players
-repeat task.wait() until game.Players.LocalPlayer
-repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
-getgenv().Mode = "OneClick"
-getgenv().Setting = {
-    ["Team"] = "Pirates", -- Options "Pirates", "Marines"
-    ["FucusOnLevel"] = true,
-    ["Fruits"] = {  -- setting for fruits u want
-        ["Primary"] = { -- if current fruit is not in this list, eat/buy
-		"Dough-Dough",
-        },
-        ["Normal"] = { -- it just a normal fruit list
-	"Ice-Ice",
-        "Quake-Quake",
-        "Light-Light", 
-        "Dark-Dark",
-        "Rumble-Rumble",
-        "Magma-Magma"
-
-            -- u can configs add mores/remove and must end with , (comma symbol)
-        }
-        -- run this for get all fruit name `local t={};for _,v in pairs(game.ReplicatedStorage.Remotes.CommF_:InvokeServer("GetFruits"))do table.insert(t,v.Name)end;setclipboard(table.concat(t, "\n"))`
-    },
-    ["Lock Fruits"] = { -- don't use or eat fruits in this list
+repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
+getgenv().Key = "be9f2319660feaad3dd3ddac"
+getgenv().SettingFarm ={
+    ["Hide UI"] = false,
+    ["Reset Teleport"] = {
+        ["Enabled"] = false,
+        ["Delay Reset"] = 3,
+        ["Item Dont Reset"] = {
+            ["Fruit"] = {
+                ["Enabled"] = true,
+                ["All Fruit"] = true, 
+                ["Select Fruit"] = {
+                    ["Enabled"] = false,
+                    ["Fruit"] = {
 	    "Yeti-Yeti",
             "Dragon-Dragon",
             "Dough-Dough",
@@ -35,11 +24,70 @@ getgenv().Setting = {
 	    "Lightning-Lightning",
 	    "T-Rex-T-Rex",
 	    "Tiger-Tiger",
-		"Control-Control",
+	    "Control-Control",
+},
+                },
+            },
+        },
     },
-    ["IdleCheck"] = 300, -- every (x) seconds if not moving rejoin
-};
-
--- script here
-getgenv().user_key = 'ab1537d331a33efcb1af40d2a052aadd'
-loadstring(game:HttpGet("https://raw.githubusercontent.com/xQuartyx/QuartyzScript/main/OneClick/BF.lua"))()
+    ["White Screen"] = false,
+    ["Lock Fps"] = {
+        ["Enabled"] = false,
+        ["FPS"] = 20,
+    },
+    ["Get Items"] = {
+        ["Saber"] = true,
+        ["Godhuman"] =  true,
+        ["Skull Guitar"] = true,
+        ["Mirror Fractal"] = true,
+        ["Cursed Dual Katana"] = true,
+        ["Upgrade Race V2-V3"] = false,
+        ["Auto Pull Lever"] = true,
+        ["Shark Anchor"] = false, --- if have cdk,sg,godhuman
+    },
+    ["Get Rare Items"] = {
+        ["Rengoku"] = false,
+        ["Dragon Trident"] = false, 
+        ["Pole (1st Form)"] = false,
+        ["Gravity Blade"]  = false,
+    },
+    ["Farm Fragments"] = {
+        ["Enabled"]  = false,
+        ["Fragment"] = 50000,
+    },
+    ["Auto Chat"] = {
+        ["Enabled"] = false,
+        ["Text"] = "",
+    },
+    ["Auto Summon Rip Indra"] = true, --- auto buy haki and craft haki legendary 
+    ["Select Hop"] = { -- 70% will have it
+        ["Hop Server If Have Player Near"] = false, 
+        ["Hop Find Rip Indra Get Valkyrie Helm or Get Tushita"] = true, 
+        ["Hop Find Dough King Get Mirror Fractal"] = true,
+        ["Hop Find Raids Castle [CDK]"] = true,
+        ["Hop Find Cake Queen [CDK]"] = true,
+        ["Hop Find Soul Reaper [CDK]"] = true,
+        ["Hop Find Darkbeard [SG]"] = true,
+        ["Hop Find Mirage [ Pull Lever ]"] = true,
+    },
+    ["Farm Mastery"] = {
+        ["Melee"] = false,
+        ["Sword"] = false,
+    },
+    ["Buy Haki"] = {
+        ["Enhancement"] = true,
+        ["Skyjump"] = true,
+        ["Flash Step"] = true,
+        ["Observation"] = true,
+    },
+    ["Sniper Fruit Shop"] = {
+        ["Enabled"] = false, -- Auto Buy Fruit in Shop Mirage and Normal
+        ["Fruit"] = {"Leopard-Leopard","Kitsune-Kitsune","Dragon-Dragon","Yeti-Yeti","Gas-Gas"},
+    },
+    ["Lock Fruit"] = {},
+    ["Webhook"] = {
+        ["Enabled"] = false,
+        ["WebhookUrl"] = "",
+    }
+}
+loadstring(game:HttpGet("https://raw.githubusercontent.com/obiiyeuem/vthangsitink/main/BananaCat-kaitunBF.lua"))()
