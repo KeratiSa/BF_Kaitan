@@ -1,35 +1,47 @@
 repeat task.wait() until game:IsLoaded()
 
 getgenv().HorstConfig = {
-    ["EnableLog"] = true, -- ปรับเป็น true ถ้าอยากให้มันเช็คของ BF / GAG
+    ["EnableLog"] = true,
     ["Whitescreen"] = false,
-    ["EnableAddFriends"] = false, -- แอดเพื่อนให้เอง ทุกๆ 1นาที
+    ["EnableAddFriends"] = false,
     ["LockFps"] = {
-        ["EnableLockFps"] = true,
-        ["LockFpsAmount"] = 12
+        ["EnableLockFps"] = false,
+        ["LockFpsAmount"] = 30 
     },
     ["AutoFunctions"] = {
-        ["Enable"] = false, -- ออโต้เปลี่ยนไอดี สำคัญ !!
+        ["Enable"] = true,
         ["BF"] = { 
             ["MAIN"] = {
-                ["Level"] = 2000,
-                ["Fragments"] = 0, -- ถ้าต่ำกว่านี้จะไม่เปลี่ยนไอดีให้ until >=
+                ["Level"] = 2800,
+                ["Fragments"] = 10000,
                 ["Full_Mastery_DF"] = false,
                 ["Full_Awake_DF"] = false,
                 ["Lever"] = false,
                 ["Lock_Race"] = {
                     ["Enable"] = false,
-                    ["Race"] = "Cyborg", -- ["Cyborg", "Ghoul", "Mink", "Fishman", "Skypiea", "Draco"]
-                    ["Ability"] = "V3"
+                    ["Race"] = "Cyborg",
+                    ["Ability"] = "V3",
+                },
+                ["Inventory"] = { -- จะส่งไอเท็มาใน log + เช็คตอน DONE ถ้าไม่มีของ จะไม่ DONE
+                    ["Enable"] = false,
+                    ["Name"] = {
+                        "Leviathan Heart",
+                        "Kitsune-Kitsune",
+                    },
+                    ["Amount"] = { -- อย่าลืมใส่จำนวนให้ตรง
+                        1,
+                        1
+                    }
                 }
             },
             ["PASS"] = false,
-            ["GOD"] = false,
+            ["GOD"] = true,
             ["GOD_CDK"] = false,
             ["GOD_SA"] = false, 
             ["GOD_MIR_VAL"] = false, 
             ["GOD_CDK_MIR_VAL"] = false,
+            ["SANGUINE_ART"] = false
         }
     }
 }
-loadstring(game:HttpGet("https://raw.githubusercontent.com/KeratiSa/BF_Kaitan/refs/heads/main/hox"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/HorstSpaceX/last_update/refs/heads/main/on_loaded.lua"))()
