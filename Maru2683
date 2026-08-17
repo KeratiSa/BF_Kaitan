@@ -39,7 +39,7 @@ getgenv().Setting = {
 getgenv().license_key = "ab1537d331a33efcb1af40d2a052aadd"
 
 task.delay(60, function()
-    loadstring(game:HttpGet("hg"))()
+    
 end)
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/xQuartyx/QuartyzScript/main/OneClick/loader.lua"))()
