@@ -5,11 +5,11 @@ getgenv().HorstConfig = {
     ["Whitescreen"] = false,
     ["EnableAddFriends"] = false,
     ["LockFps"] = {
-        ["EnableLockFps"] = true,
-        ["LockFpsAmount"] = 10 
+        ["EnableLockFps"] = false,
+        ["LockFpsAmount"] = 30 
     },
     ["AutoFunctions"] = {
-        ["Enable"] = true,
+        ["Enable"] = false,
         ["BF"] = { 
             ["MAIN"] = {
                 ["Level"] = 2800,
@@ -23,7 +23,7 @@ getgenv().HorstConfig = {
                     ["Ability"] = "V3",
                 },
                 ["Inventory"] = { -- จะส่งไอเท็มาใน log + เช็คตอน DONE ถ้าไม่มีของ จะไม่ DONE
-                    ["Enable"] = false,
+                    ["Enable"] = true,
                     ["Name"] = {
                         "Leviathan Heart",
                         "Kitsune-Kitsune",
