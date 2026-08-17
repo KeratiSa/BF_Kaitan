@@ -1,2 +1,6 @@
-setfpscap(10) 
-print("FPS locked to 60")
+repeat task.wait(1) until game:IsLoaded()
+
+while true do task.wait() 
+    setfpscap(11)
+    task.wait(20)
+end
