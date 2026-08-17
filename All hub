@@ -1,0 +1,66 @@
+-- ============================================================
+-- [[ 1. รอเกมและตัวละครโหลดให้สมบูรณ์ ]]
+-- ============================================================
+repeat task.wait() until game:IsLoaded()
+repeat task.wait() until game:GetService("Players").LocalPlayer
+
+print("[SYSTEM] เกมโหลดสมบูรณ์! กำลังรอ 30 วินาทีก่อนเริ่มระบบ...")
+task.wait(30)
+
+-- ============================================================
+-- [[ 2. ฟังก์ชันโหลดสคริปต์แบบ Auto-Retry (วนซ้ำจนกว่าจะได้) ]]
+-- ============================================================
+local function LoadWithRetry(ScriptName, Url)
+    local success = false
+    local attempt = 0
+    
+    while not success do
+        attempt = attempt + 1
+        print(string.format("⏳ [%d] กำลังพยายามโหลด: %s ...", attempt, ScriptName))
+        
+        -- ใช้ pcall ดึงข้อมูลจากเว็บ เพื่อไม่ให้สคริปต์หลักพังถ้าเน็ตหลุด
+        local reqSuccess, errOrContent = pcall(function()
+            return game:HttpGet(Url)
+        end)
+        
+        if reqSuccess and errOrContent and errOrContent ~= "" then
+            -- ตรวจสอบว่าโค้ดที่ดึงมาสมบูรณ์ไหม
+            local loadFunc, loadErr = loadstring(errOrContent)
+            
+            if loadFunc then
+                -- รันโค้ดแบบแยก Thread จะได้ไม่ไปบล็อกสคริปต์ตัวถัดไป
+                task.spawn(function()
+                    pcall(loadFunc)
+                end)
+                
+                success = true
+                print("✅ [SUCCESS] รันสำเร็จ: " .. ScriptName)
+            else
+                warn("❌ [ERROR] โค้ดพัง (Syntax Error): " .. ScriptName .. " | ลองใหม่ใน 5 วิ...")
+                task.wait(5)
+            end
+        else
+            warn("❌ [ERROR] ดึงข้อมูลไม่สำเร็จ (Network/Limit): " .. ScriptName .. " | ลองใหม่ใน 5 วิ...")
+            task.wait(5)
+        end
+    end
+end
+
+-- ============================================================
+-- [[ 3. เริ่มรันสคริปต์ตามลำดับ (ดีเลย์ 5 วินาที) ]]
+-- ============================================================
+print("========================================")
+
+-- 📦 สคริปต์ที่ 1
+LoadWithRetry("CDKZAOZONE", "https://gitlab.com/KeratiSa/bf/-/raw/main/CDKZAOZONE")
+task.wait(5) -- ดีเลย์ 5 วินาทีตามที่ขอ
+
+-- 📦 สคริปต์ที่ 2
+LoadWithRetry("Log Tools", "https://raw.githubusercontent.com/KeratiSa/BF_Kaitan/refs/heads/main/logtolls")
+task.wait(5) -- ดีเลย์ 5 วินาทีตามที่ขอ
+
+-- 📦 สคริปต์ที่ 3
+LoadWithRetry("FPS Boost", "https://raw.githubusercontent.com/KeratiSa/BF_Kaitan/refs/heads/main/fps")
+
+print("========================================")
+print("🎉 [SYSTEM] สคริปต์ทั้งหมดถูกดึงและรันสำเร็จ 100%!")
